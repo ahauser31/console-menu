@@ -1,6 +1,7 @@
 import textwrap
 
 from consolemenu.format import MenuStyle
+from colors import ansilen
 
 
 class Dimension(object):
@@ -173,9 +174,14 @@ class MenuComponent(object):
         Returns:
             str: A row of this menu component with the specified content.
         """
+        content = self._format_content(content, align)
+        colorLen = len(content) - ansilen(content)
+        for i in range(colorLen):
+            content = content + ' '
+
         return u"{lm}{vert}{cont}{vert}".format(lm=' ' * self.margins.left,
                                                 vert=self.border_style.outer_vertical,
-                                                cont=self._format_content(content, align))
+                                                cont=content)
 
     @staticmethod
     def _alignment_char(align):

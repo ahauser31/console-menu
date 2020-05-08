@@ -15,6 +15,11 @@ http://console-menu.readthedocs.org/en/latest/
 
 .. image:: ./images/console-menu_screenshot2.png
 
+Note
+-----
+
+This fork implements color support using package ansicolors; however, no test cases
+have been written to ensure full compatibility with existing features.
 
 Installation
 ~~~~~~~~~~~~
